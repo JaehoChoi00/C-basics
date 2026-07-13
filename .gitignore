@@ -1,0 +1,13 @@
+# Block everything
+*
+
+# No folder block
+!*/
+
+# No block C source code
+!*.c
+!*.h
+
+# No block documentations
+!README.md
+!.gitignore
