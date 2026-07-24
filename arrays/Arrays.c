@@ -3,6 +3,7 @@
 int main() {
     // Character array = string
     char string[] = "This is a string.\n";
+
     printf("%s", string);
     
     // Integer array

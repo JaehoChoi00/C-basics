@@ -4,6 +4,14 @@
 # No folder block
 !*/
 
+# Package Manager & Build Directories
+node_modules/
+vendor/
+.cache/
+dist/
+build/
+out/
+
 # No block C source code
 !*.c
 !*.h
@@ -11,3 +19,23 @@
 # No block documentations
 !README.md
 !.gitignore
+
+# Never commit Environment and Security
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Operating System System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Server logs
+*.log
+
+# IDEs and Editors
+.vscode/*
+!.vscode/extensions.json
