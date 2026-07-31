@@ -10,7 +10,7 @@
 !*.h
 !*.png
 !CMakeLists.txt
-!README.md
+!*.md 
 !.gitignore
 
 # Package Manager & Build Directories
