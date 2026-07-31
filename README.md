@@ -1,6 +1,6 @@
 # C Basics 
 
-![C](C_Logo.png)
+<img src="C_Logo.png" width = 100 height = 100>  
 
 > * Link to Guide [Learn-C](https://learn-c.org)  
 > * Link to CMake [Documentation](https://cmake.org/cmake/help/latest/index.html)
