@@ -10,6 +10,12 @@ int main(void) {
 
     printf("1 - 1 = %d\n", sub(1, 1));
 
+    printf("2 * 3 = %d\n", mul(2, 3));
+
+    printf("2 / 3 = %d\n", div(2, 3));
+
+    printf("2 %% 3 = %d\n", mod(2, 3));
+
     return 0;
 }
 

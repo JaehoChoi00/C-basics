@@ -166,6 +166,11 @@ int main() {
     // Specifier %lc
     printf("\nRocket: %lc\n", rocketEmoji);
 
+    wchar_t wide_str_hello_world[] = L"你好，世界 🌍. 세상아, 안녕🌍"; 
+    
+    // Specifier %ls
+    printf("\nOther languages: %ls\n", wide_str_hello_world);
+
 
     /* 
         Integers
@@ -275,8 +280,19 @@ int main() {
     // Specifier %p
     printf("Memory Address of [string]: %p\n", &string);
 
+    /* 
+        Boolean
+    */ 
+    printf(BOLD UNDERLINE "\n[Boolean]\n\n" RESET);
+
     bool yesOrNo = true; // 1 or 0. It doesn't matter if the value is assigned to be greater than 1. It will still be 1
     bool fuse = false; // If we link the fuse variable to any circuit or logic. It becomes a very simple and elegant single use detector.
+
+    printf("\nYes or No = %d]\n", yesOrNo);
+
+    /*
+        Others
+    */
 
     int foo; // foo is just a generic statement. Mostly to mean absolutely nothing but the variable it represents.
     int bar; // This too.

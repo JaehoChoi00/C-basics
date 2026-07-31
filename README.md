@@ -8,7 +8,7 @@
 <br>
 
 ## Sections:
-> * [`Intro`](intro/README.md)
-> * [`Variables`](variables/README.md)
-> * [`Header Files`](headers/README.md)
-> * [`CMake`](cmakelists/README.md) 
+> * [`Intro`](intro/Intro.md)
+> * [`Variables`](variables/Variables.md)
+> * [`Header Files`](headers/Headers.md)
+> * [`CMake`](cmakelists/CMakeLists.md) 

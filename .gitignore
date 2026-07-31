@@ -12,9 +12,11 @@ dist/
 build/
 out/
 
-# No block C source code
+# No block C source code, cxx = cpp, h = header files
 !*.c
+!*.cxx
 !*.h
+!CMakeLists.txt
 
 # No block documentations
 !README.md
