@@ -2,7 +2,16 @@
 *
 
 # No folder block
-!*/
+!**/
+
+# No block C source code, cxx = cpp, h = header files
+!*.c
+!*.cxx
+!*.h
+!*.png
+!CMakeLists.txt
+!README.md
+!.gitignore
 
 # Package Manager & Build Directories
 node_modules/
@@ -11,12 +20,6 @@ vendor/
 dist/
 build/
 out/
-
-# No block C source code, cxx = cpp, h = header files
-!*.c
-!*.cxx
-!*.h
-!CMakeLists.txt
 
 # No block documentations
 !README.md
@@ -39,5 +42,6 @@ $RECYCLE.BIN/
 *.log
 
 # IDEs and Editors
+!.vscode/
 .vscode/*
 !.vscode/extensions.json
