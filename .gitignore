@@ -1,34 +1,18 @@
-# Block everything
-*
-
-# No folder block
-!**/
-
-# No block C source code, cxx = cpp, h = header files
-!*.c
-!*.cxx
-!*.h
-!*.png
-!CMakeLists.txt
-!*.md 
-!.gitignore
-
-# Package Manager & Build Directories
-node_modules/
-vendor/
+# Build Directories
+build/
 .cache/
 dist/
-build/
 out/
 
-# No block documentations
-!README.md
-!.gitignore
+# Package Manager
+vendor/
+node_modules/
 
-# Never commit Environment and Security
+# Environment and Security
 .env
 .env.local
 .env.*.local
+
 *.pem
 *.key
 
@@ -38,10 +22,18 @@ Thumbs.db
 desktop.ini
 $RECYCLE.BIN/
 
+# Package Manager & Build Directories
+node_modules/
+vendor/
+.cache/
+dist/
+build/
+solobuild/
+out/
+
 # Server logs
 *.log
 
 # IDEs and Editors
-!.vscode/
 .vscode/*
 !.vscode/extensions.json

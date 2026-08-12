@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required(VERSION 4.3.1)
 
-project(CMakeList)
+project(Hello_CMakeList)
 
 add_executable(helloInCPP) 
 

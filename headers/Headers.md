@@ -2,6 +2,27 @@
 
 [:arrow_left: Return to Main README](../README.md)
 
+> This is a full rundown of these files:
+> * [`HeaderFiles.c`](/headers/HeaderFiles.c) 
+> * [`HeaderFiles.h`](/headers/HeaderFiles.h) 
+> * [`HeaderExperimentation.c`](/headers/HeaderExperimentation.c) 
+> * [`HeaderExperimentation.h`](/headers/HeaderExperimentation.h) 
+> * [`main.c`](/headers/main.c) 
+>
+> ---
+> 
+> **Terminal code for compiling and running**:  
+> ```bash
+> cd C\ Basics/headers/   
+> gcc main.c HeaderFiles.c HeaderExperimentation.c -o HeaderFiles && ./HeaderFiles  
+>
+> or 
+> 
+> gcc *.c -o HeaderFiles && ./HeaderFiles  
+> ``` 
+> 
+> <br>
+
 ## Sections:
 
 > * [`The .h Side`](#the-h-side)
@@ -11,6 +32,7 @@
 > * [`Personal Experiments`](#personal-experiments)
 >     * [`Simple Calculator`](#simple-calculator)
 >     * [`The Variable Constants`](#the-variable-constants)
+> * [`Reference`](#reference)
 
 
 ---
@@ -32,7 +54,7 @@ void someFunctionInHeaderFile(void);
 
 ```c
 #include <stdio.h>
-#include "HeaderFiles.h" // Links definition to declaration to catch typing errors
+#include "HeaderFiles.h" // Copies declarations so main knows the functions exist
 
 void someFunctionInHeaderFile(void) {
     printf("This is a function definition\n");
@@ -222,50 +244,52 @@ This is a function definition
 #define CLEAR_LINE     "\033[2K\r"
 
 // --- SCREEN & KEYBOARD CONTROLS ---
-#define endOfString = 0;       // ASCII code for NUL / NULL pointer termination
-#define bell = 7;              // ASCII code to play system audio alert sound
-#define backSpace = 8;         // ASCII code to move terminal cursor backward one space
-#define horizontalTab = 9;     // ASCII code to shift text by a tab key column amount
-#define lineFeed = 10;          // ASCII code for \n to drop cursor down to next line
-#define carriageReturn = 13;    // ASCII code for \r to return cursor to start of current line
-#define escape = 27;            // ASCII code for ESC to start terminal formatting commands
+#define endOfString = 0          // ASCII code for NUL / NULL pointer termination
+#define bell = 7                 // ASCII code to play system audio alert sound
+#define backSpace = 8            // ASCII code to move terminal cursor backward one space
+#define horizontalTab = 9        // ASCII code to shift text by a tab key column amount
+#define lineFeed = 10            // ASCII code for \n to drop cursor down to next line
+#define carriageReturn = 13      // ASCII code for \r to return cursor to start of current line
+#define escape = 27              // ASCII code for ESC to start terminal formatting commands
 
 // --- DATA TRANSMISSIONS ---
-#define startOfHeading = 1;     // Marks the beginning of metadata (like file name or address)
-#define startOfText = 2;        // Signals that the actual body of the message is starting
-#define endOfText = 3;          // Signals that the body of the message is finished
-#define endOfTransmission = 4;  // Closes the raw active data transmission stream
-#define enquiry = 5;            // Asks the remote device "Are you there? Send your status."
-#define acknowledge = 6;        // The receiving device replies "Yes, I am here and ready."
-#define negativeAcknowledge = 21; // The receiver replies "Error! Last data packet corrupted, resend."
-#define synchronousIdle = 22;   // Sent periodically to keep two communications devices in sync
-#define endOfTransmitBlock = 23; // Marks the end of a single chunk when dividing massive files
+#define startOfHeading = 1       // Marks the beginning of metadata (like file name or address)
+#define startOfText = 2          // Signals that the actual body of the message is starting
+#define endOfText = 3            // Signals that the body of the message is finished
+#define endOfTransmission = 4    // Closes the raw active data transmission stream
+#define enquiry = 5              // Asks the remote device "Are you there? Send your status."
+#define acknowledge = 6          // The receiving device replies "Yes, I am here and ready."
+#define negativeAcknowledge = 21 // The receiver replies "Error! Last data packet corrupted, resend."
+#define synchronousIdle = 22     // Sent periodically to keep two communications devices in sync
+#define endOfTransmitBlock = 23  // Marks the end of a single chunk when dividing massive files
 
 // --- PHYSICAL MACHINE CONTROL ---
-#define verticalTab = 11;       // Jumped the paper roller downward to a pre-set row
-#define formFeed = 12;          // Ejected the current physical piece of paper out for a fresh page
-#define shiftOut = 14;          // Switched mechanical printer ribbons to alternate color/font (e.g., Red)
-#define shiftIn = 15;           // Switched printer ribbon back to the default black/standard font
-#define dataLinkEscape = 16;    // Changes meaning of the very next character to a raw hardware command
-#define deviceControl1 = 17;    // Custom hardware switch. Universally used as "XON" to resume reader
-#define deviceControl2 = 18;    // Custom hardware switch for secondary attached device operations
-#define deviceControl3 = 19;    // Custom hardware switch. Universally used as "XOFF" to pause reader
-#define deviceControl4 = 20;    // Custom hardware switch for secondary attached device operations
-#define cancel = 24;            // Tells mechanical printer to ignore everything typed on current line
-#define endOfMedium = 25;       // Triggered alarm indicating machine was out of paper tape or ink ribbon
-#define substitute = 26;        // Replaced a character that couldn't be printed due to data corruption
+#define verticalTab = 11         // Jumped the paper roller downward to a pre-set row
+#define formFeed = 12            // Ejected the current physical piece of paper out for a fresh page
+#define shiftOut = 14            // Switched mechanical printer ribbons to alternate color/font (e.g., Red)
+#define shiftIn = 15             // Switched printer ribbon back to the default black/standard font
+#define dataLinkEscape = 16      // Changes meaning of the very next character to a raw hardware command
+#define deviceControl1 = 17      // Custom hardware switch. Universally used as "XON" to resume reader
+#define deviceControl2 = 18      // Custom hardware switch for secondary attached device operations
+#define deviceControl3 = 19      // Custom hardware switch. Universally used as "XOFF" to pause reader
+#define deviceControl4 = 20      // Custom hardware switch for secondary attached device operations
+#define cancel = 24              // Tells mechanical printer to ignore everything typed on current line
+#define endOfMedium = 25         // Triggered alarm indicating machine was out of paper tape or ink ribbon
+#define substitute = 26          // Replaced a character that couldn't be printed due to data corruption
 
 // --- ANCIENT DATABASE SEPARATORS ---
-#define fileSeparator = 28;     // Acted like a modern folder boundary to separate files in a stream
-#define groupSeparator = 29;    // Acted like a sub-folder boundary to separate records within a file
-#define recordSeparator = 30;   // Acted like a spreadsheet row boundary to separate individual records
-#define unitSeparator = 31;     // Acted like a spreadsheet column boundary to separate fields in a record
-#define deleteChar = 127;       // ASCII for DEL (1111111) used to physically punch holes over tape mistakes
+#define fileSeparator = 28       // Acted like a modern folder boundary to separate files in a stream
+#define groupSeparator = 29      // Acted like a sub-folder boundary to separate records within a file
+#define recordSeparator = 30     // Acted like a spreadsheet row boundary to separate individual records
+#define unitSeparator = 31       // Acted like a spreadsheet column boundary to separate fields in a record
+#define deleteChar = 127         // ASCII for DEL (1111111) used to physically punch holes over tape mistakes
 
 // --- UTILITIES ---
-#define spinner (char[]){'|', '/', '-', '\\'}; // Characters for a quick downloading/loading animation loop
+#define spinner ((char[]){'|', '/', '-', '\\'})  // Characters for a quick downloading/loading animation loop
 
 #endif
 ```
 
+## [Reference](#sections)
 
+> * [Common C keywords](https://www.w3schools.com/c/c_ref_reference.php)

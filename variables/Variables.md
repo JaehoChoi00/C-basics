@@ -2,13 +2,16 @@
 
 [:arrow_left: Return to Main README](../README.md)
 
-> This is a full rundown of the [Variable.c](/variables/Variables.c) file  
+[:arrow_right: move to Extended Variables README](VariablesExtended.md)
+
+> This is a full rundown of the [`Variable.c`](/variables/Variables.c) file  
 > 
 > **Terminal code for compiling and running**:  
 > ```bash
 > cd C\ Basics/variables/   
 > gcc Variables.c -o Variables && ./Variables  
 > ```
+> <br>
 
 ## Sections:
 
@@ -44,7 +47,7 @@
 
 ### :arrow_right: [To the Variable Constants Header in Experimentations](/headers/Headers.md)
 
-### ASCII STYLE
+### [ASCII STYLE](#sections)
 
 ```c
 // --- ANSI ESCAPE STYLE MACROS ---
@@ -89,7 +92,7 @@ printf("\nGreen text\n");
 printf("%c[0m", escape); // 0 resets the format.
 ```
 
-### INVISIBLE CHARACTERS
+### [INVISIBLE CHARACTERS](#sections)
 
 ```c
     // These invisible ASCII codes are for manipulating the terminal windows.
@@ -241,6 +244,9 @@ unsigned char encryption_key[4] = { 0xDE, 0xAD, 0xBE, 0xEF };
 >
 > A single [character](#the-character) expects 1 byte.  
 > A single `lc` expects 2 or 4 bytes.
+> * `wchar_t` is implementation-defined.
+> * **Windows** = 2 bytes
+> * **Linux/macOS** = 4 bytes
 >
 > The `s` in `%ls` stands for **String**. 
 > 
@@ -274,6 +280,22 @@ Other languages: 你好，世界 🌍. 세상아, 안녕🌍
 ```c
 #include <stdint.h>
 ```
+
+> On modern desktop systems, `int` is almost always 32 bits.
+>
+> The C standard only guarantees: 
+>
+> ```txt
+> sizeof(char) <= sizeof(short) 
+>                      │
+>      ┌───────────────┘
+>      │
+> sizeof(short) <= sizeof(int)  
+>                      │
+>      ┌───────────────┘
+>      │
+> sizeof(int) <= sizeof(long)
+> ```
 
 ```c
 printf(BOLD UNDERLINE "\n[Integers]\n\n" RESET);
@@ -401,8 +423,15 @@ printf("%hu\n", unsignedShortNum);
 > The `i` here means integer.
 > The `u` here means unsigned.
 >
+> ---
+> 
 > A **single** `l` = 32-Bits
+> * Windows (LLP64): 32-bit
+> * Linux/macOS (LP64): 64-bit  
+> 
 > A **double** `ll` = 64-Bits
+>
+> ---
 >
 > The numbers above may seem like impossible numbers to comprehend.
 > But these are some examples on would consider using them:
@@ -564,8 +593,8 @@ Memory Address of [string]: 0x16cf4a8b0
 ```c
 int foo; // foo is just a generic statement. Mostly to mean absolutely nothing but the variable it represents.
 int bar; // This too.
-int bax; // And this.
-int quz; // This four.
+int baz; // And this.
+int qux; // This four.
 
 int alice; // for cyber security. The person trying to send a message
 int bob; // This too. The person trying to receive.

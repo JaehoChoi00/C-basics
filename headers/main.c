@@ -19,9 +19,9 @@ int main(void) {
     return 0;
 }
 
-// gcc main.c HeaderFiles.c HeaderExperimentation.c -o header_files
+// gcc main.c HeaderFiles.c HeaderExperimentation.c -o HeaderFiles
 
-// Quickest way is gcc *.c -o header_files
+// Quickest way is gcc *.c -o HeaderFiles
 /*
     This compiles every .c file in the folder you are in.
 */
