@@ -12,6 +12,18 @@ struct StructureWithMemberRestrictions {
     unsigned int fourBitMember : 4; 
 };
 
+typedef struct StructureWithFunctionPointers StructureWithFunctionPointers;
+
+void internalPrintFunction(StructureWithFunctionPointers* self) {
+    printf("Executed internal function! Member value: " BOLD FG_GREEN "%d" RESET, self->storedValue);
+}
+
+struct StructureWithFunctionPointers {
+    int storedValue;
+    // Syntax: return_type (*pointer_name)(arguments);
+    void (*printData)(StructureWithFunctionPointers* self); 
+};
+
 int main() {
     // Structures
     printf(BOLD UNDERLINE "%c[Structures]" RESET, LINEFEED);
@@ -44,6 +56,19 @@ int main() {
     restrictedVariable.twoBitMember = 4;   
 
     printf("restrictedVariable OVERFLOW twoBitMember (Assigned 4, fits 2 bits): " BOLD FG_RED "%u" RESET, restrictedVariable.twoBitMember);
+    NEWLINE;
+
+    // Structures with Function Pointers
+    printf(BOLD UNDERLINE "%c[Structures with Function Pointers]" RESET, LINEFEED);
+    NEWLINE;
+
+    struct StructureWithFunctionPointers functionalVariable;
+
+    functionalVariable.storedValue = 42;
+    functionalVariable.printData = internalPrintFunction;
+
+    // Call the "internal function" through the struct variable, passing its own address
+    functionalVariable.printData(&functionalVariable);
     NEWLINE;
 
     return 0;

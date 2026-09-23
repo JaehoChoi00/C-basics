@@ -89,3 +89,5 @@ This is NORMAL mode
 5 / 6 = 0
 5 / 6 = 0.833333
 ```
+
+[:arrow_up: Return to Top](#macros)

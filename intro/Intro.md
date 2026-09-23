@@ -47,8 +47,8 @@
 
 <code>%n specifier</code> [`documentation`](<https://www.geeksforgeeks.org/c/g-fact-31/>)
 
-> ***FUN FACT:***
-> 
+> [!TIP]
+>
 > ***`printf` is Turing-complete primarily because of the `%n` format specifier, which allows the function to write data back into memory***
 >
 > For something to be **Turing Complete**:
@@ -96,3 +96,5 @@ The exact arguements written to run this:
 ./soloBuild/Main Hello World, do you see me? 
 ```
 <br>
+
+[:arrow_up: Return to Top](#introduction)

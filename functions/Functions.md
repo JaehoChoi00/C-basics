@@ -20,7 +20,7 @@
 
 > * [`Declarations`](#declarations)
 > * [`Definitions`](#definitions)
-> * [`Testing`](testing)
+> * [`Testing`](#testing)
 
 ---
 
@@ -86,3 +86,5 @@ Message from function: Message to Distribute
 
 Sending Message "Did you receive?" to functionWithStringManipulation. New message: "Well received"
 ```
+
+[:arrow_up: Return to Top](#functions)

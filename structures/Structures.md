@@ -6,8 +6,8 @@
 > 
 > **Terminal code for compiling and running**:  
 > ```bash
-> cd C\ Basics/variables/   
-> gcc Variables.c -o Variables && ./Variables  
+> cd C\ Basics/structures/   
+> gcc Structures.c -o Structures && ./Structures  
 > ```
 > <br>
 
@@ -15,6 +15,7 @@
 
 > * [`Structure With Two Members`](#structure-with-two-members)
 > * [`Structure With Member Restrictions`](#structure-with-member-restrictions)
+> * [`Structures with Function Pointers`](#structures-with-function-pointers)
 
 ---
 
@@ -90,3 +91,43 @@ restrictedVariable fourBitMember (4 bits): 12
 
 restrictedVariable OVERFLOW twoBitMember (Assigned 4, fits 2 bits): 0
 ```
+
+### [Structures with Function Pointers](#sections)
+
+
+***Creation***
+
+```c
+typedef struct StructureWithFunctionPointers StructureWithFunctionPointers;
+
+void internalPrintFunction(StructureWithFunctionPointers* self) {
+    printf("Executed internal function! Member value: " BOLD FG_GREEN "%d" RESET, self->storedValue);
+}
+
+struct StructureWithFunctionPointers {
+    int storedValue;
+    // Syntax: return_type (*pointer_name)(arguments);
+    void (*printData)(StructureWithFunctionPointers* self); 
+};
+```
+
+***C Syntax***
+
+```c
+struct StructureWithFunctionPointers functionalVariable;
+
+functionalVariable.storedValue = 42;
+functionalVariable.printData = internalPrintFunction;
+
+// Call the "internal function" through the struct variable, passing its own address
+functionalVariable.printData(&functionalVariable);
+NEWLINE;
+```
+
+***Output***
+
+```txt
+Executed internal function! Member value: 42
+```
+
+[:arrow_up: Return to Top](#structures)

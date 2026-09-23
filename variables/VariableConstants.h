@@ -81,7 +81,7 @@
 
 // --- UTILITIES ---
 #define SPINNER "|/-\\" // Characters for a quick downloading/loading animation loop
-#define NEWLINE printf("\n\n") // \n is equivalent to LINEFEED
-#define LINEBREAK printf("\n--------------------------------\n")
+#define NEWLINE printf(RESET "\n\n") // \n is equivalent to LINEFEED
+#define LINEBREAK printf(RESET "\n--------------------------------\n")
 
 #endif
