@@ -28,6 +28,7 @@
 > * [`Thread Safety`](threadSafety/ThreadSafety.md)
 >     * [`Thread Safety Extended`](threadSafety/ThreadSafetyExtended.md)
 > * [`Time`](time/Time.md)
+> * [`Bitwise Logic`](bitwise/BitwiseOperations.md)
 
 ### Utilities:  
 
