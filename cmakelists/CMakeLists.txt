@@ -54,8 +54,6 @@ target_link_libraries(CMakeExampleProgram
 
 # Testing
 
-# Testing
-
 enable_testing()
 
 add_executable(TestOne test/test1.c)
