@@ -6,7 +6,10 @@
 
 ## Sections
 
-> * [`Standard CMakeLists.txt`](#standard-cmakeliststxt)
+> * [`Layer 1: Minimal Executable`](#layer-1-minimal-executable)
+> * [`Layer 2: Adding a Static Library & Dependencies`](#layer-2-adding-a-static-library--dependencies)
+> * [`Layer 3: Adding Testing Infrastructure`](#layer-3-adding-testing-infrastructure)
+> * [`Layer 4: Full Production Configuration (Original)`](#layer-4-full-production-configuration-original)
 > * [`Standard Project Structure`](#standard-project-structure)
 > * [`File Relationship`](#file-relationship)
 > * [`Build Process`](#build-process)
@@ -14,7 +17,198 @@
 
 ---
 
-### [Standard `CMakeLists.txt`](#sections)
+### Layer 1: Minimal Executable
+
+Building the intuition for minimal cmake.
+
+```cmake
+cmake_minimum_required(VERSION [cmake_version])
+
+project([project_name]
+    VERSION [major.minor.patch]
+    LANGUAGES C
+)
+
+# C Standard
+
+set(CMAKE_C_STANDARD [c_standard])
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+
+# Executable
+
+add_executable([executable_name]
+    src/main.c
+)
+```
+
+---
+
+### Layer 2: Adding a Static Library & Dependencies
+
+```cmake
+cmake_minimum_required(VERSION [cmake_version])
+
+project([project_name]
+    VERSION [major.minor.patch]
+    LANGUAGES C
+)
+
+# C Standard
+
+set(CMAKE_C_STANDARD [c_standard])
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+
+# LAYER 2 ADDITIONS: Dependencies & Library Target
+
+# Dependencies
+
+find_package([package_name] REQUIRED)
+
+# Library
+
+add_library([library_name] STATIC
+    src/[projectfile1.c]
+    src/[projectfile2.c]
+    src/[projectfile3.c]
+)
+
+target_include_directories([library_name]
+    PUBLIC
+        include
+)
+
+target_link_libraries([library_name]
+    PUBLIC
+        [dependency_name]
+)
+
+# Executable
+
+add_executable([executable_name]
+    src/main.c
+)
+
+# LAYER 2 ADDITIONS: Executable Linkage
+
+target_link_libraries([executable_name]
+    PRIVATE
+        [library_name]
+)
+```
+
+---
+
+### Layer 3: Adding Testing Infrastructure
+
+```cmake
+cmake_minimum_required(VERSION [cmake_version])
+
+project([project_name]
+    VERSION [major.minor.patch]
+    LANGUAGES C
+)
+
+# C Standard
+
+set(CMAKE_C_STANDARD [c_standard])
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+
+# Dependencies
+
+find_package([package_name] REQUIRED)
+
+# Library
+
+add_library([library_name] STATIC
+    src/[projectfile1.c]
+    src/[projectfile2.c]
+    src/[projectfile3.c]
+)
+
+target_include_directories([library_name]
+    PUBLIC
+        include
+)
+
+target_link_libraries([library_name]
+    PUBLIC
+        [dependency_name]
+)
+
+
+# Executable
+
+add_executable([executable_name]
+    src/main.c
+)
+
+target_link_libraries([executable_name]
+    PRIVATE
+        [library_name]
+)
+
+
+# ---------------------------------------------------------
+# LAYER 3 ADDITIONS: CTest Target Registrations
+# ---------------------------------------------------------
+
+# Testing
+
+enable_testing()
+
+add_executable([test_name1]
+    test/[test1.c]
+)
+
+target_link_libraries([test_name1]
+    PRIVATE
+        [library_name]
+)
+
+add_test(
+    NAME [test_name1]
+    COMMAND [test_name1]
+)
+
+
+add_executable([test_name2]
+    test/[test2.c]
+)
+
+target_link_libraries([test_name2]
+    PRIVATE
+        [library_name]
+)
+
+add_test(
+    NAME [test_name2]
+    COMMAND [test_name2]
+)
+
+
+add_executable([test_name3]
+    test/[test3.c]
+)
+
+target_link_libraries([test_name3]
+    PRIVATE
+        [library_name]
+)
+
+add_test(
+    NAME [test_name3]
+    COMMAND [test_name3]
+)
+```
+
+---
+
+### Layer 4: Full Production Configuration (Original)
+
+The complete configuration setup, incorporating system install location defaults, target exports, and downstream configuration package generation.
 
 ```cmake
 cmake_minimum_required(VERSION [cmake_version])
@@ -336,7 +530,7 @@ ctest --test-dir build --output-on-failure
 
 ### [References](#sections)
 
-> * [CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
+> * [CMake Tutorial](https://cmake.org)
 > * [CMake Documentation](https://cmake.org/cmake/help/latest/)
 > * [ENCCS CMake Workshop](https://enccs.github.io/cmake-workshop/)
 

@@ -29,6 +29,8 @@
 >     * [`Thread Safety Extended`](threadSafety/ThreadSafetyExtended.md)
 > * [`Time`](time/Time.md)
 > * [`Bitwise Logic`](bitwise/BitwiseOperations.md)
+> * [`Inputs`](inputs/Inputs.md)
+> * [`HTTP Networking`]()
 
 ### Utilities:  
 
